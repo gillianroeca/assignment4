@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Joes Hotdogs</title>
+
+<style>
+	
+
+h2,p{margin: 20px;}
+
+
+.container{
+	column-count: 1;
+	outline: 5px dotted #000;
+	float:left;
+	height: 300px;
+	width: 200px;
+	color: #FFF;
+	text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+}
+
+	</style>
+	
+</head>
+	
+	
+	
+
+<body>
+
+	<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Joe's Hotdog Stand </h1>
+
+	<div class="row">
+  		<div class="container" style="background-color:#B71212;"> 
+    		<h2>Items Ordered: </h2>
+   		 	<p id="dogs"></p>
+			<p id="fries"></p>
+			<p id="drinks"></p>
+  	</div>
+  	<div class="container" style="background-color:#E8B707;">
+    	<h2>Reciept: </h2>
+    	<p id="subtotal"></p>
+		<p id="discount"></p>
+		<p id="tax"></p>
+		<p id="total"></p>
+  </div>
+</div>
+
+
+	
+	
+
+
+	<script language="javascript">
+	subtotal = 0.00;
+	discount = 0.00;
+	total = 0.00;
+	tax = 0.00;
+
+	hotdogs = parseInt(prompt ("Welcome to Joe's! How many hotdogs would you like?", ""));
+		if (hotdogs>0){
+			n = 1;
+			while(n<=hotdogs){
+				subtotal+=3.25;	
+				n++;
+			}
+			document.getElementById("dogs").innerHTML = "Hotdogs: " + hotdogs;
+		}	
+		
+	fries = parseInt(prompt ("How many french fries would you like?", ""));
+		if (fries>0){
+			i = 1;
+			while(i<=fries){
+				subtotal+=2.00;	
+				i++;
+			}
+			document.getElementById("fries").innerHTML = "French Fries: " + fries;
+		}
+
+	drinks = parseInt(prompt ("How many drinks would you like?", ""));
+		if (drinks>0){
+			j = 1;
+			while(j<=hotdogs){
+				subtotal+=1.50;	
+				j++;
+			}
+			document.getElementById("drinks").innerHTML = "Drinks: " + drinks;
+		}
+		
+	
+	fixedsubtotal = subtotal.toFixed(2);
+	document.getElementById("subtotal").innerHTML = "Subtotal: $" + fixedsubtotal;
+		if(subtotal>=20)
+		{
+			discount = subtotal*.10;
+			fixeddiscount = discount.toFixed(2);
+			document.getElementById("discount").innerHTML = "Discount: -$" + fixeddiscount;
+		}
+
+	tax= subtotal*.0625
+	fixedtax = tax.toFixed(2);
+		document.getElementById("tax").innerHTML = "Tax: +$" + fixedtax;
+	
+	total = subtotal + discount + tax;
+	fixedtotal = total.toFixed(2);
+		document.getElementById("total").innerHTML = "Total: $" + fixedtotal;
+
+
+	
+
+		
+	
+	</script>
+	
+	
+	
+	
+</body>
+</html>
